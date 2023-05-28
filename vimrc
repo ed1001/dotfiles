@@ -1,4 +1,8 @@
 syntax on
+set number
+set relativenumber
+set mouse=a
+colorscheme slate
 set backspace=indent,eol,start
 set tabstop=2 shiftwidth=2 expandtab
 if has("multi_byte")
