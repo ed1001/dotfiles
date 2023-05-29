@@ -41,6 +41,9 @@ setopt nocasematch
 
 git config --global core.editor "vim"
 
+# create symlink to sync vimrc -> ideavimrc
+ln -s ~/.vimrc ~/.ideavimrc
+
 zsh ~/.zshrc
 
 echo "done!"
