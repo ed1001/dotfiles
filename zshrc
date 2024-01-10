@@ -99,6 +99,8 @@ unalias rm # No interactive rm by default (brought by plugins/common-aliases)
 # Store your own aliases in the ~/.aliases file and load the here.
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
 
+eval "$(rbenv init - zsh)"
+
 # Encoding stuff for the terminal
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -109,6 +111,7 @@ export LC_ALL=en_US.UTF-8
 # export BUNDLER_EDITOR="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' -a"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="${HOME}/.local/bin:${PATH}"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -117,20 +120,25 @@ export NVM_DIR="$HOME/.nvm"
 export AWS_CONFIG_FILE=~/.aws/config
 export AWS_PROFILE=dev
 
-source secrets.zsh
+source ~/.secrets.zsh
 
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 
 
 
-# function to open code stuff in webstorm:
-ows() {
-  webstorm "/Users/edwardphilips/code/$1"
+# function to open code stuff in nvim:
+ov() {
+  cd "/Users/edwardphilips/code/$1" && nvim
+}
+
+# function to open config stuff in nvim:
+ovc() {
+ "/Users/edwardphilips/.config/$1" && nvim
 }
 
 # function to go to code dirs:
-gtc() {
+cdc() {
   cd "/Users/edwardphilips/code/$1"
 }
 
@@ -149,5 +157,8 @@ add_autocomplete() {
     complete -F "_autocomplete_${cmd}" $cmd
 }
 
-add_autocomplete ows "/Users/edwardphilips/code/"
-add_autocomplete gtc "/Users/edwardphilips/code/"
+add_autocomplete ov "/Users/edwardphilips/code/"
+add_autocomplete ovc "/Users/edwardphilips/.config/"
+add_autocomplete cdc "/Users/edwardphilips/code/"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -14,6 +14,7 @@ for name in *; do
     target="$HOME/.$name"
     if [[ ! "$name" =~ '\.sh$' ]]; then
       backup $target
+      echo $name
 
       if [ ! -e "$target" ]; then
         echo "-----> Symlinking your new $target"
@@ -36,8 +37,6 @@ if [ ! -d "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting" ]; then
   git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 fi
 cd "$CURRENT_DIR"
-
-setopt nocasematch
 
 git config --global core.editor "vim"
 

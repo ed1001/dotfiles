@@ -47,5 +47,10 @@
 [branch "master"]
   mergeoptions = --no-edit
 [user]
-	email = edphil@hotmail.co.uk
+	email = 44973397+ed1001@users.noreply.github.com
 	name = Edward Phillips
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
