@@ -1,2 +1,3 @@
-secrets.zsh
+.secrets.zsh
 .idea
+.DS_Store

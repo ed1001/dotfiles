@@ -3,10 +3,7 @@ alias ip="curl ipinfo.io/ip"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
 
-# Quickly serve the current directory as HTTP
-alias serve='ruby -run -e httpd . -p 8000'  # Or python -m SimpleHTTPServer :)
-
-alias vim=nvim
+alias vim="nvim"
 
 # clear scroll buffer
 alias c="clear; printf '\e[3J'"
@@ -14,6 +11,6 @@ alias c="clear; printf '\e[3J'"
 # zellij
 alias z="zellij"
 
-# docker
-alias dcu="docker compose up"
-alias dcut="docker compose -f docker-compose.test.yml up"
+# fuzzy file finder
+alias f="fzf"
+alias p="pnpm" 
