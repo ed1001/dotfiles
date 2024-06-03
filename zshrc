@@ -7,9 +7,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
-
-
-
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -35,7 +32,6 @@ unalias rm # No interactive rm by default (brought by plugins/common-aliases)
 # Store your own aliases in the ~/.aliases file and load the here.
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
 
-eval "$(rbenv init - zsh)"
 
 # Encoding stuff for the terminal
 export LANG=en_US.UTF-8

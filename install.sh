@@ -41,7 +41,7 @@ cd "$CURRENT_DIR"
 git config --global core.editor "vim"
 
 # create symlink to sync vimrc -> ideavimrc
-ln -s ~/.vimrc ~/.ideavimrc
+# ln -s ~/.vimrc ~/.ideavimrc
 
 zsh ~/.zshrc
 
