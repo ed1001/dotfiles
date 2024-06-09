@@ -20,9 +20,6 @@ plugins=(
       git
       last-working-dir
       common-aliases
-      zsh-syntax-highlighting
-      zsh-autosuggestions
-      zsh-history-substring-search
 )
 
 # Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Analytics.md
@@ -34,8 +31,6 @@ unalias rm # No interactive rm by default (brought by plugins/common-aliases)
 
 # Store your own aliases in the ~/.aliases file and load the here.
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
-
-eval "$(rbenv init - zsh)"
 
 # Encoding stuff for the terminal
 export LANG=en_US.UTF-8
@@ -60,17 +55,17 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 
 # function to open code stuff in nvim:
 ov() {
-  cd "/Users/edwardphillips/code/ed1001/$1" && nvim
+  cd "/Users/$(whoami)/code/ed1001/$1" && nvim
 }
 
 # function to open config stuff in nvim:
 ovc() {
- "/Users/edwardphillips/.config/$1" && nvim
+ "/Users/$(whoami)/.config/$1" && nvim
 }
 
 # function to go to code dirs:
 cdc() {
-  cd "/Users/edwardphillips/code/ed1001/$1"
+  cd "/Users/$(whoami)/code/ed1001/$1"
 }
 
 # Function to add autocomplete for a given command and directory
@@ -88,13 +83,14 @@ add_autocomplete() {
     complete -F "_autocomplete_${cmd}" $cmd
 }
 
-add_autocomplete ov "/Users/edwardphillips/code/ed1001/"
-add_autocomplete ovc "/Users/edwardphillips/.config/"
-add_autocomplete cdc "/Users/edwardphillips/code/ed1001/"
+add_autocomplete ov "/Users/$(whoami)/code/ed1001/"
+add_autocomplete ovc "/Users/$(whoami)/.config/"
+add_autocomplete cdc "/Users/$(whoami)/code/ed1001/"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-source /Users/edwardphillips/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
