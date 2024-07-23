@@ -1,28 +1,6 @@
-backup() {
-	target=$1
-	if [ -e "$target" ]; then       # Does the config file already exist?
-		if [ ! -L "$target" ]; then    # as a pure file?
-			mv "$target" "$target.backup" # Then backup it
-			echo "-----> Moved your old $target config file to $target.backup"
-		fi
-	fi
-}
-
 #!/bin/zsh
-for name in *; do
-	if [ ! -d "$name" ]; then
-		target="$HOME/.$name"
-		if [[ ! "$name" =~ \.sh$ ]]; then
-			backup "$target"
-			echo "$name"
 
-			if [ ! -e "$target" ]; then
-				echo "-----> Symlinking your new $target"
-				ln -s "$PWD/$name" "$target"
-			fi
-		fi
-	fi
-done
+./backup-dotfiles.sh
 
 # brew
 brew list zsh-syntax-highlighting >/dev/null || brew install zsh-syntax-highlighting
@@ -34,7 +12,20 @@ brew list fzf >/dev/null || brew fzf
 brew list eza >/dev/null || brew eza
 brew list font-jetbrains-mono-nerd-font >/dev/null || brew install --cask font-jetbrains-mono-nerd-font
 
-git config --global core.editor "vim"
+# kitty
+kitty -v >/dev/null || curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+
+# lazyvim
+if [[ -e ~/.config/nvim/ ]]; then
+	echo "Neovim config exists would you like to overwrite with Lazyvim starter? y/n"
+	read -r addLazyvim
+	[ "$addLazyvim" = "y" ] && ./install-lazy-git.sh
+else
+	echo "Skipping Lazyvim installation"
+fi
+
+# git
+git config --global core.editor "neovim"
 
 zsh ~/.zshrc
 
