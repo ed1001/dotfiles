@@ -4,13 +4,8 @@ alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
 
 alias vim="nvim"
-
-# clear scroll buffer
 alias c="clear; printf '\e[3J'"
-
-# zellij
-alias z="zellij"
-
-# fuzzy file finder
 alias f="fzf"
 alias p="pnpm" 
+alias ll="eza -l --icons=always"
+alias cd="z"

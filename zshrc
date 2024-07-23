@@ -83,8 +83,9 @@ add_autocomplete cdc "/Users/edwardphillips/code/ed1001/"
 source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 source /Users/edwardphillips/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"
+eval "$(thefuck --alias fuck)"
 
 # pnpm
 export PNPM_HOME="/Users/edwardphillips/Library/pnpm"
