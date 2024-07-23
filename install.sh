@@ -12,9 +12,9 @@ backup() {
 for name in *; do
 	if [ ! -d "$name" ]; then
 		target="$HOME/.$name"
-		if [[ ! "$name" =~ '\.sh$' ]]; then
-			backup $target
-			echo $name
+		if [[ ! "$name" =~ \.sh$ ]]; then
+			backup "$target"
+			echo "$name"
 
 			if [ ! -e "$target" ]; then
 				echo "-----> Symlinking your new $target"
@@ -24,24 +24,17 @@ for name in *; do
 	fi
 done
 
-REGULAR="\\033[0;39m"
-YELLOW="\\033[1;33m"
-GREEN="\\033[1;32m"
-
-# zsh plugins
-CURRENT_DIR=$(pwd)
-ZSH_PLUGINS_DIR="$HOME/.oh-my-zsh/custom/plugins"
-mkdir -p "$ZSH_PLUGINS_DIR" && cd "$ZSH_PLUGINS_DIR"
-if [ ! -d "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting" ]; then
-	echo "-----> Installing zsh plugin 'zsh-syntax-highlighting'..."
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-fi
-cd "$CURRENT_DIR"
+# brew
+brew list zsh-syntax-highlighting >/dev/null || brew install zsh-syntax-highlighting
+brew list watchman >/dev/null || brew watchman
+brew list neovim >/dev/null || brew neovim
+brew list ripgrep >/dev/null || brew ripgrep
+brew list gnu-sed >/dev/null || brew gnu-sed
+brew list fzf >/dev/null || brew fzf
+brew list eza >/dev/null || brew eza
+brew list font-jetbrains-mono-nerd-font >/dev/null || brew install --cask font-jetbrains-mono-nerd-font
 
 git config --global core.editor "vim"
-
-# create symlink to sync vimrc -> ideavimrc
-# ln -s ~/.vimrc ~/.ideavimrc
 
 zsh ~/.zshrc
 
