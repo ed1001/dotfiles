@@ -47,7 +47,7 @@
 [branch "master"]
   mergeoptions = --no-edit
 [user]
-	email = 44973397+ed1001@users.noreply.github.com
+	email = edphil@hotmail.co.uk
 	name = Edward Phillips
 [filter "lfs"]
 	required = true
