@@ -8,4 +8,16 @@ alias c="clear; printf '\e[3J'"
 alias f="fzf"
 alias p="pnpm" 
 alias ll="eza -l --icons=always"
+alias tree="eza --tree --icons=always"
 alias cd="z"
+
+# Git
+alias gl="git pull"
+alias gs="git stash -u"
+alias gsp="git stash pop"
+alias gri="git rebase -i"
+alias gcon="vim ~/.gitconfig"
+alias gnb="git checkout -b"
+alias gco="git checkout"
+
+

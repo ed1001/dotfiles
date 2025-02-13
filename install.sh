@@ -11,6 +11,11 @@ brew list gnu-sed >/dev/null || brew install gnu-sed
 brew list fzf >/dev/null || brew install fzf
 brew list eza >/dev/null || brew install eza
 brew list thefuck >/dev/null || brew install thefuck
+brew list lazygit >/dev/null || brew install lazygit
+brew list ast-grep >/dev/null || brew install ast-grep
+brew list fish >/dev/null || brew install fish
+brew list fd >/dev/null || brew install fd
+brew list lua-language-server >/dev/null || brew install lua-language-server
 brew list font-jetbrains-mono-nerd-font >/dev/null || brew install --cask font-jetbrains-mono-nerd-font
 
 # kitty
