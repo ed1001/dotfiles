@@ -1,0 +1,47 @@
+VISUAL MODE ***********************************
+
+S - visually select with options
+o in visual mode, swap highlight anchor point
+
+
+
+MACROS ***********************************
+
+qa - record macro to reg a
+qA - record appendage to macro in reg a
+
+macros in visual mode, you can just select multiple lines to perform macro on those lines
+if the macro adds lines, to not garble the results select the lines and cmdline: norm!@[register_name]
+
+
+
+MOTION ***********************************
+
+% jump to matching bracket
+]] - go to next reference
+
+f or t next/prev match: f/t and ,
+
+
+
+REGISTERS ***********************************
+
+To paste into command line press ctrl + r then the register name
+“[register_name] - activate register, after which you can do something like paste or copy
+
+
+COMMAND *************************************
+%s/foo/bar/g - replace foo with bar
+
+
+PLUGINS ***********************************
+
+
+YOUTUBE ***********************************
+
+https://youtu.be/ERMmTs4AVA4?si=x6fdHO2IniTVYC3s&t=1309
+https://www.youtube.com/@cloud-native-corner
+https://www.youtube.com/watch?v=6Pu0V0tdT8w
+https://youtu.be/5BU2gBOe9RU?si=yUWPQaLOwdDWyjIV&t=234
+
+
