@@ -17,9 +17,8 @@ brew list fish >/dev/null || brew install fish
 brew list fd >/dev/null || brew install fd
 brew list lua-language-server >/dev/null || brew install lua-language-server
 brew list font-jetbrains-mono-nerd-font >/dev/null || brew install --cask font-jetbrains-mono-nerd-font
+brew list ghostty >/dev/null || brew install --cask ghostty
 
-# kitty
-kitty -v >/dev/null || curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 
 # lazyvim
 if [[ -e ~/.config/nvim/ ]]; then
