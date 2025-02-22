@@ -37,6 +37,7 @@
 
   # Removes a file from the index
   unstage = reset HEAD --
+	temp = !git add . && git commit -m \"temp\"
 
 [help]
   autocorrect = 1
