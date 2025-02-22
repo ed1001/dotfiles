@@ -1,9 +1,9 @@
-# Get External IP / local IPs
 alias ip="curl ipinfo.io/ip"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
 
 alias vim="nvim"
+alias vi="nvim"
 alias c="clear; printf '\e[3J'"
 alias f="fzf"
 alias p="pnpm" 
@@ -12,12 +12,26 @@ alias tree="eza --tree --icons=always"
 alias cd="z"
 
 # Git
+alias gcon="vim ~/.gitconfig"
+
 alias gl="git pull"
+alias glnr="git pull --no-rebase"
+
 alias gs="git stash -u"
 alias gsp="git stash pop"
+
+alias gr="git rebase"
 alias gri="git rebase -i"
-alias gcon="vim ~/.gitconfig"
+alias grc="git rebase --continue"
+alias gra="git rebase --abort"
+
 alias gnb="git checkout -b"
-alias gco="git checkout"
+alias grh="git reset HEAD~"
 
+alias gwta="git worktree add"
+alias gwtr="git worktree remove"
+alias gwtl="git worktree list"
 
+# Config
+alias ovn="vim ~/.config/nvim"
+alias ova="vim ~/code/ed1001/dotfiles/aliases"
