@@ -19,16 +19,14 @@ plugins=(
 
 export HOMEBREW_NO_ANALYTICS=1
 
-# Actually load Oh-My-Zsh
 source "${ZSH}/oh-my-zsh.sh"
 unalias rm # No interactive rm by default (brought by plugins/common-aliases)
 unalias lt # interferes with localtunnel
 
-# Store your own aliases in the ~/.aliases file and load the here.
+# load aliases
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
 
 
-# Encoding stuff for the terminal
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
@@ -36,6 +34,15 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="${HOME}/.local/bin:${PATH}"
 export PATH="${HOME}/.local/bin:${PATH}"
 export PATH="$PATH:$HOME/scripts"
+export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
+
+# pnpm
+export PNPM_HOME="/Users/edwardphillips/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
 
 
 export AWS_CONFIG_FILE=~/.aws/config
@@ -46,7 +53,21 @@ source ~/.secrets.zsh
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /Users/edwardphillips/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"
+eval "$(thefuck --alias fuck)"
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+
+# custom functions
 
 # function to open code stuff in nvim:
 ov() {
@@ -82,24 +103,15 @@ add_autocomplete ov "/Users/edwardphillips/code/ed1001/"
 add_autocomplete ovc "/Users/edwardphillips/.config/"
 add_autocomplete cdc "/Users/edwardphillips/code/ed1001/"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-source /Users/edwardphillips/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+function gswf() {
+    git switch $(git branch --list | fzf)
+}
 
-eval "$(fzf --zsh)"
-eval "$(zoxide init zsh)"
-eval "$(thefuck --alias fuck)"
+function glf() {
+    git pull origin $(git branch --list | fzf)
+}
 
-# pnpm
-export PNPM_HOME="/Users/edwardphillips/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+function glnrf() {
+    git pull --no-rebase origin $(git branch --list | fzf)
+}
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn

@@ -3,21 +3,49 @@
 ./backup-dotfiles.sh
 
 # brew
-brew list zsh-syntax-highlighting >/dev/null || brew install zsh-syntax-highlighting
-brew list watchman >/dev/null || brew install watchman
-brew list neovim >/dev/null || brew install neovim
-brew list ripgrep >/dev/null || brew install ripgrep
-brew list gnu-sed >/dev/null || brew install gnu-sed
-brew list fzf >/dev/null || brew install fzf
-brew list eza >/dev/null || brew install eza
-brew list thefuck >/dev/null || brew install thefuck
-brew list lazygit >/dev/null || brew install lazygit
-brew list ast-grep >/dev/null || brew install ast-grep
-brew list fish >/dev/null || brew install fish
-brew list fd >/dev/null || brew install fd
-brew list lua-language-server >/dev/null || brew install lua-language-server
-brew list font-jetbrains-mono-nerd-font >/dev/null || brew install --cask font-jetbrains-mono-nerd-font
-brew list ghostty >/dev/null || brew install --cask ghostty
+
+install_package() {
+  local package="$1"
+
+  if brew info --formula "$package" &>/dev/null; then
+    echo "Installing formula: $package"
+    brew list "$package" &>/dev/null || brew install "$package"
+  elif brew info --cask "$package" &>/dev/null; then
+    echo "Installing cask: $package"
+    brew list --cask "$package" &>/dev/null || brew install --cask "$package"
+  else
+    echo "Package $package not found in Homebrew."
+  fi
+}
+
+packages=(
+  "zsh-syntax-highlighting"
+  "watchman"
+  "neovim"
+  "ripgrep"
+  "gnu-sed"
+  "fzf"
+  "eza"
+  "lazygit"
+  "ast-grep"
+  "fish"
+  "fd"
+  "lua-language-server"
+  "font-jetbrains-mono-nerd-font"
+  "ghostty"
+  "raycast"
+  "arc"
+  "dbeaver-community"
+  "docker"
+  "github"
+  "slack"
+  "spotify"
+  "visual-studio-code"
+)
+
+for package in "${packages[@]}"; do
+  install_package "$package"
+done
 
 
 # lazyvim

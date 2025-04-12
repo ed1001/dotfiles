@@ -11,10 +11,9 @@
 
 [core]
   pager = less -FRSX
-	editor = nvim
+	editor = neovim
 
 [alias]
-  co = checkout
   st = status -sb
   br = branch
   ci = commit
