@@ -59,7 +59,6 @@ source /Users/edwardphillips/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
-eval "$(thefuck --alias fuck)"
 
 
 export NVM_DIR="$HOME/.nvm"

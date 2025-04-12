@@ -26,6 +26,7 @@ packages=(
   "gnu-sed"
   "fzf"
   "eza"
+  "zoxide"
   "lazygit"
   "ast-grep"
   "fish"
