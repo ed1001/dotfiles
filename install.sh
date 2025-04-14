@@ -20,6 +20,8 @@ install_package() {
 
 packages=(
   "zsh-syntax-highlighting"
+  "zsh-history-substring-search"
+  "zsh-autosuggestions"
   "watchman"
   "neovim"
   "ripgrep"

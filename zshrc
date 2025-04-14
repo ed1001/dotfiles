@@ -12,9 +12,6 @@ plugins=(
       git
       last-working-dir
       common-aliases
-      zsh-syntax-highlighting
-      zsh-autosuggestions
-      zsh-history-substring-search
 )
 
 export HOMEBREW_NO_ANALYTICS=1
@@ -22,6 +19,7 @@ export HOMEBREW_NO_ANALYTICS=1
 source "${ZSH}/oh-my-zsh.sh"
 unalias rm # No interactive rm by default (brought by plugins/common-aliases)
 unalias lt # interferes with localtunnel
+unalias "P" # https://github.com/ohmyzsh/ohmyzsh/issues/5243
 
 # load aliases
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
@@ -54,8 +52,9 @@ bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-source ${HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
