@@ -37,7 +37,7 @@ export PATH="$PATH:$HOME/scripts"
 export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
 
 # pnpm
-export PNPM_HOME="/Users/edwardphillips/Library/pnpm"
+export PNPM_HOME="${HOME}/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -55,7 +55,7 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-source /Users/edwardphillips/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ${HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
@@ -70,17 +70,17 @@ export NVM_DIR="$HOME/.nvm"
 
 # function to open code stuff in nvim:
 ov() {
-  cd "/Users/edwardphillips/code/ed1001/$1" && nvim
+  cd "${HOME}/code/ed1001/$1" && nvim
 }
 
 # function to open config stuff in nvim:
 ovc() {
- "/Users/edwardphillips/.config/$1" && nvim
+ "${HOME}/.config/$1" && nvim
 }
 
 # function to go to code dirs:
 cdc() {
-  cd "/Users/edwardphillips/code/ed1001/$1"
+  cd "${HOME}/code/ed1001/$1"
 }
 
 # Function to add autocomplete for a given command and directory
@@ -98,9 +98,9 @@ add_autocomplete() {
     complete -F "_autocomplete_${cmd}" $cmd
 }
 
-add_autocomplete ov "/Users/edwardphillips/code/ed1001/"
-add_autocomplete ovc "/Users/edwardphillips/.config/"
-add_autocomplete cdc "/Users/edwardphillips/code/ed1001/"
+add_autocomplete ov "${HOME}/code/ed1001/"
+add_autocomplete ovc "${HOME}/.config/"
+add_autocomplete cdc "${HOME}/code/ed1001/"
 
 function gswf() {
     git switch $(git branch --list | fzf)
