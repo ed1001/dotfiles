@@ -11,7 +11,7 @@
 
 [core]
   pager = less -FRSX
-	editor = neovim
+	editor = nvim
 
 [alias]
   st = status -sb
