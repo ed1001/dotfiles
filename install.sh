@@ -66,6 +66,12 @@ else
 	echo "Skipping Lazyvim installation"
 fi
 
+# cargo
+curl https://sh.rustup.rs -sSf | sh
+
+# zellij
+cargo install --locked zellij
+
 # git
 git config --global core.editor "neovim"
 
