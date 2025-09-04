@@ -2,7 +2,13 @@
 
 ./backup-dotfiles.sh
 
-# brew
+# oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# homebrew packages
 
 install_package() {
   local package="$1"
