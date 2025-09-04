@@ -59,11 +59,15 @@ done
 
 # lazyvim
 if [[ -e ~/.config/nvim/ ]]; then
-	echo "Neovim config exists would you like to overwrite with Lazyvim starter? y/n"
-	read -r addLazyvim
-	[ "$addLazyvim" = "y" ] && ./install-lazy-git.sh
+    echo "Neovim config exists. Would you like to overwrite with Ed's lazyvim setup? y/n"
+    read -r addLazyvim
+    if [ "$addLazyvim" = "y" ]; then
+        ./install-lazy-git.sh
+    else
+        echo "Skipping Lazyvim installation"
+    fi
 else
-	echo "Skipping Lazyvim installation"
+    ./install-lazy-git.sh
 fi
 
 # cargo
