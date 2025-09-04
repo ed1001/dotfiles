@@ -49,6 +49,7 @@ packages=(
   "slack"
   "spotify"
   "visual-studio-code"
+  "zen"
 )
 
 for package in "${packages[@]}"; do
