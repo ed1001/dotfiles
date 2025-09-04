@@ -46,8 +46,6 @@ esac
 export AWS_CONFIG_FILE=~/.aws/config
 export AWS_PROFILE=dev
 
-source ~/.secrets.zsh
-
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 
