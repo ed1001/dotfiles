@@ -43,7 +43,6 @@ packages=(
   "font-jetbrains-mono-nerd-font"
   "ghostty"
   "raycast"
-  "arc"
   "dbeaver-community"
   "docker"
   "github"
