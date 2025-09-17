@@ -1,6 +1,7 @@
 #!/bin/zsh
 
-./backup-dotfiles.sh
+./sync-dotfiles.sh
+./sync-bin.sh
 
 # Oh My Zsh
 if [ -d "$HOME/.oh-my-zsh" ]; then
@@ -56,6 +57,7 @@ packages=(
   "dbeaver-community"
   "docker"
   "github"
+  "git-lfs"
   "slack"
   "spotify"
   "visual-studio-code"

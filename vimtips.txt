@@ -1,18 +1,15 @@
+MARKS ***********************************
+ma - set mark 'a' in file
+mA - set global mark 'A' 
+'a/A - jump to mark
+
+Scratchpad ***********************************
+<leader>.
+
 VISUAL MODE ***********************************
 
 S - visually select with options
 o in visual mode, swap highlight anchor point
-
-
-
-MACROS ***********************************
-
-qa - record macro to reg a
-qA - record appendage to macro in reg a
-
-macros in visual mode, you can just select multiple lines to perform macro on those lines
-if the macro adds lines, to not garble the results select the lines and cmdline: norm!@[register_name]
-
 
 
 MOTION ***********************************

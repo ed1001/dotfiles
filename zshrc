@@ -1,3 +1,6 @@
+source $HOME/code/ed1001/dotfiles/path-append.sh
+source $HOME/code/ed1001/dotfiles/secrets.zsh
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -28,11 +31,13 @@ unalias "P" # https://github.com/ohmyzsh/ohmyzsh/issues/5243
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH="${HOME}/.local/bin:${PATH}"
-export PATH="$PATH:$HOME/scripts"
-export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
-export PATH="$PATH:$HOME/.cargo/"
+path_append "$HOME/bin/"
+path_append "$HOME/.yarn/bin" before
+path_append "$HOME/.config/yarn/global/node_modules/.bin" before
+path_append "$HOME/.local/bin" before
+path_append "$HOME/scripts"
+path_append "/Applications/Docker.app/Contents/Resources/bin/"
+path_append "$HOME/.cargo/"
 
 # pnpm
 export PNPM_HOME="${HOME}/Library/pnpm"
@@ -113,4 +118,13 @@ function glf() {
 function glnrf() {
     git pull --no-rebase origin $(git branch --list | fzf)
 }
+
+
+# fnm
+FNM_PATH="/opt/homebrew/opt/fnm/bin"
+if [ -d "$FNM_PATH" ]; then
+  eval "`fnm env`"
+fi
+
+eval "$(fnm env --use-on-cd --shell zsh)"
 

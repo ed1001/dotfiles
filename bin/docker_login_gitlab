@@ -1,0 +1,1 @@
+docker login -u 26154 -p $GITLAB_REGISTRY_TOKEN registry.gitlab.essent.nl

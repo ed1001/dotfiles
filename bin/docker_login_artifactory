@@ -1,0 +1,1 @@
+docker login -u ed.phillips@essent.nl -p $ARTIFACTORY_TOKEN docker.artifactory.essent.nl:443
